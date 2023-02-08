@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Itim&family=Lato&family=Montserrat:wght@200&family=Mulish&family=Noto+Serif:wght@700&family=Open+Sans:wght@300;600&family=Playfair+Display&family=Raleway:wght@200;600&family=Roboto&display=swap");
+/* font-family: 'Playfair Display', serif; */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+#nav {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 1px;
+  padding: 15px;
+}
+
+.logo {
+  width: 35px;
+  padding-right: 10px;
+}
+
+#logo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-non-bullet {
+  list-style: none;
+}
+
+.list li {
+  display: inline-block;
+  padding-right: 6px;
+  color: lightgrey;
+  cursor: pointer;
+}
