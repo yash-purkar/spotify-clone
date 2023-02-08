@@ -1,23 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Itim&family=Lato&family=Montserrat:wght@200&family=Mulish&family=Noto+Serif:wght@700&family=Open+Sans:wght@300;600&family=Playfair+Display&family=Raleway:wght@200;600&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Itim&family=Lato&family=Montserrat:wght@200;400&family=Mulish&family=Noto+Serif:wght@700&family=Open+Sans:wght@300;600&family=Playfair+Display&family=Raleway:wght@200;600&family=Roboto&display=swap");
 /* font-family: 'Playfair Display', serif; */
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
 }
 
 body {
-  background-color: aliceblue;
+  font-family: "Montserrat", sans-serif;
+  background-color: #4e00ff21;
 }
 
+/* Navbar */
 #nav {
-  background-color: #000;
+  background-color: #220c53;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   letter-spacing: 1px;
-  padding: 15px;
+  padding: 12px;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -25,10 +29,11 @@ body {
   padding-right: 10px;
 }
 
-#logo-div {
+#brand {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Playfair Display", serif;
 }
 
 .list-non-bullet {
@@ -38,6 +43,69 @@ body {
 .list li {
   display: inline-block;
   padding-right: 6px;
-  color: lightgrey;
+  color: #b7b7b7;
   cursor: pointer;
+  font-family: "Playfair Display", serif;
+}
+
+/* Container */
+.container {
+  background-image: url("./Images/background2.jpg");
+  background-size: 1000px;
+  background-repeat: no-repeat;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  min-height: 70vh;
+  margin: auto;
+  padding: 12px;
+  border-radius: 1rem;
+}
+
+#heading {
+  margin-bottom: 35px;
+  letter-spacing: 1.5px;
+}
+
+.list-of-songs {
+  font-size: 12px;
+  padding: 10px 25px;
+}
+
+/* song */
+
+.songItem {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  margin: 15px 0;
+  border-radius: 2rem;
+}
+
+.song-logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.song-name {
+  font-size: 16px;
+}
+.song-duration {
+  font-size: 14px;
+  padding-right: 5px;
+}
+.song-list-play {
+  width: 14px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.song-play {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
