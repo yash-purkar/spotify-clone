@@ -146,12 +146,12 @@ body {
 }
 .playing-gif img {
   width: 60px;
-  /* opacity: 0;
-  transition: opacity 0.8s ease-in; */
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .playing-gif img {
     display: none;
   }
-}
+} */
