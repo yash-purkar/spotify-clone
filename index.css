@@ -68,6 +68,7 @@ body {
 #heading {
   margin-bottom: 35px;
   letter-spacing: 1.5px;
+  font-size: 29px;
 }
 
 .list-of-songs {
@@ -142,7 +143,15 @@ body {
 .playing-gif {
   position: absolute;
   left: 15vw;
-  width: 25px;
+}
+.playing-gif img {
+  width: 60px;
   /* opacity: 0;
   transition: opacity 0.8s ease-in; */
+}
+
+@media only screen and (max-width: 600px) {
+  .playing-gif img {
+    display: none;
+  }
 }
