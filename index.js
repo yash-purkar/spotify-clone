@@ -47,3 +47,13 @@ bottomPlayPauseBtn.addEventListener("click", () => {
     gif.style.opacity = 0;
   }
 });
+
+song.addEventListener("timeupdate", () => {
+  // console.log(song.currentTime);
+  // Now we'll check , how much percentage song was played out of 100.
+  // formula for that - progressInPercent = currentTime/duration*100
+  let songProgress = parseInt((song.currentTime / song.duration) * 100);
+  // console.log(songProgress);
+  songProgressBar.value = songProgress;
+
+})
