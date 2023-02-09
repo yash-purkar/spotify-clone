@@ -102,7 +102,7 @@ body {
   padding-right: 5px;
 }
 .song-list-play {
-  width: 14px;
+  width: 16px;
   padding-left: 5px;
   cursor: pointer;
 }
@@ -110,6 +110,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.btnSize {
+  font-size: 19px;
 }
 
 /* Bottom bar  */

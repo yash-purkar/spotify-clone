@@ -37,6 +37,8 @@ let previousBtn = document.getElementById("previous-btn");
 let allSongItems = Array.from(document.getElementsByClassName("songItem"));
 // We have to make array to it for iterating using foreach() method.
 // console.log(allSongItems);
+// *******
+let allPlayBtns = Array.from(document.getElementsByClassName("song-list-play"));
 
 bottomPlayPauseBtn.addEventListener("click", () => {
   if (song.paused == true || song.duration <= 0) {
@@ -108,3 +110,29 @@ allSongItems.forEach((element, i) => {
   element.getElementsByClassName("song-name")[0].innerText = songs[i].songName;
 });
 // We use [0] that means for selecting 1st img or span tag inside parent.
+
+
+const removePrevPause = () => {
+  allPlayBtns.forEach((element) => {
+    element.classList.remove("fa-pause");
+    element.classList.add("fa-play");
+  })
+}
+
+// For playing the song on clicking on individual song button.
+
+allPlayBtns.forEach((element, i) => {
+
+  element.addEventListener("click", (e) => {
+    // console.log(e.target);
+    removePrevPause();
+    e.target.classList.remove("fa-play");
+    e.target.classList.add("fa-pause");
+    bottomPlayPauseBtn.classList.remove("fa-play");
+    bottomPlayPauseBtn.classList.add("fa-pause")
+
+    song.currentTime = 0;
+    song.src = `./Songs/${songs[i].songPath}`
+    song.play();
+  })
+})
