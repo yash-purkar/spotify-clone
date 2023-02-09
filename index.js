@@ -82,3 +82,18 @@ nextBtn.addEventListener("click", () => {
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add('fa-pause');
 });
+
+//Previous button
+previousBtn.addEventListener('click', () => {
+  if (indexOfSong <= 0) {
+    indexOfSong = 0;
+  }
+  else {
+    indexOfSong -= 1;
+  }
+  song.src = `Songs/${songs[indexOfSong].songPath}`;
+  song.currentTime = 0;
+  song.play();
+  bottomPlayPauseBtn.classList.remove('fa-play');
+  bottomPlayPauseBtn.classList.add("fa-pause");
+})
