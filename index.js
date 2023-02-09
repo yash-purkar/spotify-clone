@@ -76,6 +76,7 @@ songProgressBar.addEventListener('change', () => {
   song.currentTime = (songProgressBar.value * song.duration) / 100;
 });
 
+
 // Next button
 nextBtn.addEventListener("click", () => {
   if (indexOfSong >= 4) {
@@ -90,6 +91,11 @@ nextBtn.addEventListener("click", () => {
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add('fa-pause');
   bottomSongName.innerText = songs[indexOfSong].songName;
+
+  //for handling buttons 
+  removePrevPause();
+  allPlayBtns[indexOfSong].classList.remove("fa-play");
+  allPlayBtns[indexOfSong].classList.add("fa-pause");
 });
 
 //Previous button
@@ -106,6 +112,11 @@ previousBtn.addEventListener('click', () => {
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add("fa-pause");
   bottomSongName.innerText = songs[indexOfSong].songName;
+
+  // for handling buttons
+  removePrevPause();
+  allPlayBtns[indexOfSong].classList.remove("fa-pasue");
+  allPlayBtns[indexOfSong].classList.add("fa-play");
 });
 
 
