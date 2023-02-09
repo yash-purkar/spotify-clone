@@ -27,7 +27,7 @@ let songs = [
 ];
 
 let indexOfSong = 0;
-let song = new Audio("./Songs/m1.mpeg");
+let song = new Audio("./Songs/m5.mpeg");
 // song.play();
 let songProgressBar = document.getElementById("song-progress-bar");
 let bottomPlayPauseBtn = document.getElementById("bottomBtn");
@@ -55,5 +55,12 @@ song.addEventListener("timeupdate", () => {
   let songProgress = parseInt((song.currentTime / song.duration) * 100);
   // console.log(songProgress);
   songProgressBar.value = songProgress;
+});
 
+
+// we'll add change event on progressbar, so If we move progress bar the song will play from there.
+// for that , 1st we have a time of song played in percent , but we don't want in percent, so we'll convert it again.
+// formula - currentTime = (progressBarValue * durationOfSong) /100
+songProgressBar.addEventListener('change', () => {
+  song.currentTime = (songProgressBar.value * song.duration) / 100;
 })
