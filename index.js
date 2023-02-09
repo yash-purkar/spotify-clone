@@ -162,6 +162,7 @@ allPlayBtns.forEach((element, i) => {
       song.play();
       e.target.classList.remove("fa-play");
       e.target.classList.add("fa-pause");
+      bottomSongName.innerText = songs[i].songName;
     }
 
     else {
