@@ -2,36 +2,39 @@ let songs = [
   {
     songName: "Believer",
     logoPath: "./Images/img1",
-    songPath: "Songs/m1.mpeg"
+    songPath: "m1.mpeg"
   },
   {
     songName: "Let Me Love You",
     logoPath: "./Images/img2",
-    songPath: "Songs/m2.mpeg"
+    songPath: "m2.mpeg"
   },
   {
     songName: "Unstoppable",
     logoPath: "./Images/img3",
-    songPath: "Songs/m3.mpeg"
+    songPath: "m3.mpeg"
   },
   {
     songName: "Memories",
     logoPath: "./Images/img4",
-    songPath: "Songs/m4.mpeg"
+    songPath: "m4.mpeg"
   },
   {
     songName: "Bella Ciao",
     logoPath: "./Images/img5",
-    songPath: "Songs/m5.mpeg"
+    songPath: "m5.mpeg"
   },
 ];
 
 let indexOfSong = 0;
-let song = new Audio("./Songs/m5.mpeg");
+let song = new Audio("./Songs/m1.mpeg");
 // song.play();
 let songProgressBar = document.getElementById("song-progress-bar");
 let bottomPlayPauseBtn = document.getElementById("bottomBtn");
 let gif = document.getElementById("gif");
+let nextBtn = document.getElementById("next-btn");
+let previousBtn = document.getElementById("previous-btn");
+
 
 bottomPlayPauseBtn.addEventListener("click", () => {
   if (song.paused == true || song.duration <= 0) {
@@ -63,4 +66,19 @@ song.addEventListener("timeupdate", () => {
 // formula - currentTime = (progressBarValue * durationOfSong) /100
 songProgressBar.addEventListener('change', () => {
   song.currentTime = (songProgressBar.value * song.duration) / 100;
-})
+});
+
+// Next button
+nextBtn.addEventListener("click", () => {
+  if (indexOfSong >= 4) {
+    indexOfSong = 0;
+  }
+  else {
+    indexOfSong += 1;
+  }
+  song.src = `Songs/${songs[indexOfSong].songPath}`;
+  song.currentTime = 0;
+  song.play();
+  bottomPlayPauseBtn.classList.remove('fa-play');
+  bottomPlayPauseBtn.classList.add('fa-pause');
+});
