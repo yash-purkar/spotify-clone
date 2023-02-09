@@ -91,7 +91,7 @@ nextBtn.addEventListener("click", () => {
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add('fa-pause');
   bottomSongName.innerText = songs[indexOfSong].songName;
-
+  gif.style.opacity = 1;
   //for handling buttons 
   removePrevPause();
   allPlayBtns[indexOfSong].classList.remove("fa-play");
@@ -112,7 +112,7 @@ previousBtn.addEventListener('click', () => {
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add('fa-pause');
   bottomSongName.innerText = songs[indexOfSong].songName;
-
+  gif.style.opacity = 1;
   // for handling buttons
   removePrevPause();
   allPlayBtns[indexOfSong].classList.remove("fa-play");
