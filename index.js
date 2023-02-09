@@ -155,6 +155,7 @@ allPlayBtns.forEach((element, i) => {
       bottomSongName.innerText = songs[i].songName;
       gif.style.opacity = 1;
       currentIndex = i;
+      indexOfSong = i;
     }
     else if (currentIndex !== i) {
       song.src = `./Songs/${songs[i].songPath}`
@@ -163,6 +164,7 @@ allPlayBtns.forEach((element, i) => {
       e.target.classList.remove("fa-play");
       e.target.classList.add("fa-pause");
       bottomSongName.innerText = songs[i].songName;
+      indexOfSong = i;
     }
 
     else {
@@ -174,6 +176,7 @@ allPlayBtns.forEach((element, i) => {
       btn = "play";
       bottomSongName.innerText = songs[i].songName;
       gif.style.opacity = 0;
+      indexOfSong = i;
     }
 
   });
