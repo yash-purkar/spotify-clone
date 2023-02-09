@@ -1,27 +1,27 @@
 let songs = [
   {
     songName: "Believer",
-    logoPath: "./Images/img1",
+    logoPath: "./Images/img1.jpg",
     songPath: "m1.mpeg"
   },
   {
     songName: "Let Me Love You",
-    logoPath: "./Images/img2",
+    logoPath: "./Images/img2.jpg",
     songPath: "m2.mpeg"
   },
   {
     songName: "Unstoppable",
-    logoPath: "./Images/img3",
+    logoPath: "./Images/img3.jpg",
     songPath: "m3.mpeg"
   },
   {
     songName: "Memories",
-    logoPath: "./Images/img4",
+    logoPath: "./Images/img4.jpg",
     songPath: "m4.mpeg"
   },
   {
     songName: "Bella Ciao",
-    logoPath: "./Images/img5",
+    logoPath: "./Images/img5.jpg",
     songPath: "m5.mpeg"
   },
 ];
@@ -34,7 +34,9 @@ let bottomPlayPauseBtn = document.getElementById("bottomBtn");
 let gif = document.getElementById("gif");
 let nextBtn = document.getElementById("next-btn");
 let previousBtn = document.getElementById("previous-btn");
-
+let allSongItems = Array.from(document.getElementsByClassName("songItem"));
+// We have to make array to it for iterating using foreach() method.
+// console.log(allSongItems);
 
 bottomPlayPauseBtn.addEventListener("click", () => {
   if (song.paused == true || song.duration <= 0) {
@@ -96,4 +98,13 @@ previousBtn.addEventListener('click', () => {
   song.play();
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add("fa-pause");
-})
+});
+
+
+// Displaying song logo and song name from an array
+
+allSongItems.forEach((element, i) => {
+  element.getElementsByTagName("img")[0].src = songs[i].logoPath;
+  element.getElementsByClassName("song-name")[0].innerText = songs[i].songName;
+});
+// We use [0] that means for selecting 1st img or span tag inside parent.
