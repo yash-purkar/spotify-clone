@@ -110,12 +110,12 @@ previousBtn.addEventListener('click', () => {
   song.currentTime = 0;
   song.play();
   bottomPlayPauseBtn.classList.remove('fa-play');
-  bottomPlayPauseBtn.classList.add("fa-pause");
+  bottomPlayPauseBtn.classList.add('fa-pause');
   bottomSongName.innerText = songs[indexOfSong].songName;
 
   // for handling buttons
   removePrevPause();
-  allPlayBtns[indexOfSong].classList.remove("fa-pasue");
+  allPlayBtns[indexOfSong].classList.remove("fa-pause");
   allPlayBtns[indexOfSong].classList.add("fa-play");
 });
 

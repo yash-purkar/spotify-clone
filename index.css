@@ -119,9 +119,9 @@ body {
 /* Bottom bar  */
 
 .bottom-bar {
-  position: relative;
+  position: sticky;
   bottom: 0;
-  height: 50px;
+  height: 52px;
   background-color: #220c53;
   display: flex;
   flex-direction: column;
