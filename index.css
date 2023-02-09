@@ -151,11 +151,27 @@ body {
 .playing-gif img {
   width: 60px;
   opacity: 0;
-  transition: opacity 0.8s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
-/* @media only screen and (max-width: 600px) {
+#bottom-song-name {
+  color: #fff;
+  font-size: 18px;
+  padding-left: 3px;
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 600px) {
   .playing-gif img {
-    display: none;
+    width: 25px;
+    padding-left: 3px;
   }
-} */
+  .playing-gif {
+    display: flex;
+    flex-direction: column;
+  }
+  #bottom-song-name {
+    font-size: 10px;
+    width: 67px;
+  }
+}

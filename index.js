@@ -39,6 +39,7 @@ let allSongItems = Array.from(document.getElementsByClassName("songItem"));
 // console.log(allSongItems);
 // *******
 let allPlayBtns = Array.from(document.getElementsByClassName("song-list-play"));
+let bottomSongName = document.getElementById("bottom-song-name");
 
 bottomPlayPauseBtn.addEventListener("click", () => {
   if (song.paused == true || song.duration <= 0) {
@@ -46,12 +47,15 @@ bottomPlayPauseBtn.addEventListener("click", () => {
     bottomPlayPauseBtn.classList.remove("fa-play");
     bottomPlayPauseBtn.classList.add("fa-pause");
     gif.style.opacity = 1;
+
   }
   else {
     song.pause();
     bottomPlayPauseBtn.classList.remove("fa-pause");
     bottomPlayPauseBtn.classList.add("fa-play");
     gif.style.opacity = 0;
+    removePrevPause();
+
   }
 });
 
@@ -85,6 +89,7 @@ nextBtn.addEventListener("click", () => {
   song.play();
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add('fa-pause');
+  bottomSongName.innerText = songs[indexOfSong].songName;
 });
 
 //Previous button
@@ -100,6 +105,7 @@ previousBtn.addEventListener('click', () => {
   song.play();
   bottomPlayPauseBtn.classList.remove('fa-play');
   bottomPlayPauseBtn.classList.add("fa-pause");
+  bottomSongName.innerText = songs[indexOfSong].songName;
 });
 
 
@@ -112,7 +118,7 @@ allSongItems.forEach((element, i) => {
 // We use [0] that means for selecting 1st img or span tag inside parent.
 
 
-const removePrevPause = () => {
+function removePrevPause() {
   allPlayBtns.forEach((element) => {
     element.classList.remove("fa-pause");
     element.classList.add("fa-play");
@@ -120,19 +126,43 @@ const removePrevPause = () => {
 }
 
 // For playing the song on clicking on individual song button.
-
+let btn = "play";
+let currentIndex;
 allPlayBtns.forEach((element, i) => {
 
   element.addEventListener("click", (e) => {
     // console.log(e.target);
-    removePrevPause();
-    e.target.classList.remove("fa-play");
-    e.target.classList.add("fa-pause");
-    bottomPlayPauseBtn.classList.remove("fa-play");
-    bottomPlayPauseBtn.classList.add("fa-pause")
+    if (btn === "play") {
+      removePrevPause();
+      e.target.classList.remove("fa-play");
+      e.target.classList.add("fa-pause");
+      bottomPlayPauseBtn.classList.remove("fa-play");
+      bottomPlayPauseBtn.classList.add("fa-pause")
+      song.src = `./Songs/${songs[i].songPath}`
+      song.play();
+      btn = "pause";
+      bottomSongName.innerText = songs[i].songName;
+      gif.style.opacity = 1;
+      currentIndex = i;
+    }
+    else if (currentIndex !== i) {
+      song.src = `./Songs/${songs[i].songPath}`
+      removePrevPause();
+      song.play();
+      e.target.classList.remove("fa-play");
+      e.target.classList.add("fa-pause");
+    }
 
-    song.currentTime = 0;
-    song.src = `./Songs/${songs[i].songPath}`
-    song.play();
-  })
+    else {
+      e.target.classList.remove("fa-pause");
+      e.target.classList.add("fa-play");
+      bottomPlayPauseBtn.classList.remove("fa-pause");
+      bottomPlayPauseBtn.classList.add("fa-play");
+      song.pause();
+      btn = "play";
+      bottomSongName.innerText = songs[i].songName;
+      gif.style.opacity = 0;
+    }
+
+  });
 })
