@@ -40,6 +40,7 @@ let allSongItems = Array.from(document.getElementsByClassName("songItem"));
 // *******
 let allPlayBtns = Array.from(document.getElementsByClassName("song-list-play"));
 let bottomSongName = document.getElementById("bottom-song-name");
+let songCurrTime = 0;
 
 bottomPlayPauseBtn.addEventListener("click", () => {
   if (song.paused == true || song.duration <= 0) {
@@ -47,6 +48,9 @@ bottomPlayPauseBtn.addEventListener("click", () => {
     bottomPlayPauseBtn.classList.remove("fa-play");
     bottomPlayPauseBtn.classList.add("fa-pause");
     gif.style.opacity = 1;
+    // fa fa-play
+    allPlayBtns[indexOfSong].classList.remove('fa-play');
+    allPlayBtns[indexOfSong].classList.add('fa-pause');
 
   }
   else {
@@ -148,7 +152,7 @@ allPlayBtns.forEach((element, i) => {
       e.target.classList.remove("fa-play");
       e.target.classList.add("fa-pause");
       bottomPlayPauseBtn.classList.remove("fa-play");
-      bottomPlayPauseBtn.classList.add("fa-pause")
+      bottomPlayPauseBtn.classList.add("fa-pause");
       song.src = `./Songs/${songs[i].songPath}`
       song.play();
       btn = "pause";
@@ -163,9 +167,12 @@ allPlayBtns.forEach((element, i) => {
       song.play();
       e.target.classList.remove("fa-play");
       e.target.classList.add("fa-pause");
+      bottomPlayPauseBtn.classList.remove("fa-play");
+      bottomPlayPauseBtn.classList.add("fa-pause");
       bottomSongName.innerText = songs[i].songName;
       gif.style.opacity = 1;
       indexOfSong = i;
+      btn = "pause";
     }
 
     else {
